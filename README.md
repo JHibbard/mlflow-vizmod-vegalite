@@ -2,6 +2,7 @@
 
 
 # Structure of a Style
+```bash
 .
 ├── README.md
 ├── setup.py
@@ -17,3 +18,4 @@
     └── mlflow_vega
         └── __init__.py
         └── styles
+```
