@@ -3,23 +3,17 @@
 """
 # Standard Libraries
 import os
-import json
-import io
-import pathlib
-import pandas as pd
-from typing import Optional, Dict
 
 # External Libraries
 import mlflow.pyfunc
-import altair_viewer
 
+
+MODEL_DATA_SUBPATH = 'viz.html'
 
 class Style(mlflow.pyfunc.PythonModel):
     """
         local_model_path=local_model_path,
         model_dir_subpath=model_dir_subpath,
-
-
 
         # self.local_model_path = kwargs['local_model_path']
         # self.model_dir_subpath = kwargs['model_dir_subpath']
@@ -38,7 +32,7 @@ class Style(mlflow.pyfunc.PythonModel):
         return self.artifact_uri
 
     def _repr_html_(self):
-        path = os.path.join(self.artifact_uri, 'viz/viz/vizzy.html')
+        path = os.path.join(self.artifact_uri, MODEL_DATA_SUBPATH)
         with open(path, 'r') as html:
             data = html.read()
         return data
@@ -48,7 +42,7 @@ class Style(mlflow.pyfunc.PythonModel):
 
     @staticmethod
     def save(model, path):
-        model.save(path)
+        model.save(os.path.join(path, MODEL_DATA_SUBPATH))
 
     """
     def display(self, *kwargs):
