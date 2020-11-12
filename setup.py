@@ -2,7 +2,7 @@ from setuptools import setup, find_namespace_packages
 
 
 APP_NAME = "mlflow_vismod.styles.vegalite"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 LICENSE = "MIT"
 AUTHOR = "James Hibbard, Andrew Bauman"
 DESCRIPTION = (

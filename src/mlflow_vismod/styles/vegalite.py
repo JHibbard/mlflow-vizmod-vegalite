@@ -12,6 +12,7 @@ import mlflow.pyfunc
 MODEL_EXAMPLE_SUBPATH = 'viz.html'
 MODEL_DATA_SUBPATH = 'viz.pkl'
 
+
 class Style(mlflow.pyfunc.PythonModel):
     """
 
@@ -31,12 +32,6 @@ class Style(mlflow.pyfunc.PythonModel):
 
         """
         return self.__repr__()
-
-    def __repr__(self):
-        """
-
-        """
-        return f"mlflow_vismod.styles.vegalite.Style(artifact_uri='{self.artifact_uri}')"
 
     def _repr_html_(self):
         """
@@ -59,7 +54,5 @@ class Style(mlflow.pyfunc.PythonModel):
         """
         import cloudpickle
 
-        # Save HTML Representation
-        # model.save(os.path.join(path, MODEL_EXAMPLE_SUBPATH))
         with open(os.path.join(path, MODEL_DATA_SUBPATH), 'wb') as out:
             cloudpickle.dump(model, out)
